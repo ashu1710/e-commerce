@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  qty: 1
+  tot_amt: 1
+  user: one
+  product_size_color: one
+
+two:
+  qty: 1
+  tot_amt: 1
+  user: two
+  product_size_color: two

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  available_stock: false
+  product: one
+  product_color: one
+  product_size: one
+
+two:
+  available_stock: false
+  product: two
+  product_color: two
+  product_size: two

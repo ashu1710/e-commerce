@@ -1,0 +1,37 @@
+<div class="body-bgcolor">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+
+            <div class="col-md-4 login-div">
+
+
+                <h4 class="text-center">Forget Password</h4>
+
+                
+                <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><span class="glyphicon glyphicon-envelope"></span></span>
+                    </div>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email Address'  %>
+                </div>
+
+                <div class="actions">
+                <%= f.submit "Reset Password",class: 'btn btn-success' %>
+                </div>
+
+                <div class="for-margin-sign-up-link">
+                    <%= link_to "Log in", new_session_path(resource_name) %><br />
+                </div> 
+                <% end %>
+            </div>
+
+            <div class="col-md-4">
+            </div>
+        </div>
+    </div>
+</div>

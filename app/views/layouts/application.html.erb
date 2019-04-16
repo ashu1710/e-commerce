@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ECommerce</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <div class="topbar">
+        <div class="container">
+            <div class="navbar-header">
+                <%= link_to  "E-commerce", root_path, class: 'navbar-brand upcase anchor-ecomm-text-color'%>
+                <% if user_signed_in? %>
+                    <%= link_to  "Logout", destroy_user_session_path, method: :delete, class: 'navbar-brand upcase anchor-ecomm-text-color'%>    
+                <% end %>
+            </div>
+        </div>
+    </div>
+    
+    <% if notice %>
+        <div class="alert alert-success get-margin-at-bottom">
+        <p class="notice"><%= notice %></p>
+        </div>
+    <% end %>
+
+    <% if alert %>
+    <div class="alert alert-danger get-margin-at-bottom">
+        <p class="alert"><%= alert %>
+    </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

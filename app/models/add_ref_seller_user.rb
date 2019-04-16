@@ -1,0 +1,2 @@
+class AddRefSellerUser < ApplicationRecord
+end
