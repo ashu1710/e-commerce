@@ -4,6 +4,5 @@ class Coupon < ApplicationRecord
     has_many :orders, dependent: :destroy
 
     #validation
-    validates :
     
 end

@@ -49,6 +49,52 @@
 {
     color: white;
 }
+.fa-fa-margin
+{
+    margin-left: 10px;
+}
+.get-margin
+{
+    margin-top: 20px;
+}
+.bgcolor-table-form
+{
+    background: white;
+}
+.insert-db-form
+{
+    height: auto;
+    // margin-top: 20px;
+    margin-bottom: auto;
+    background: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+
+.dashboard-backcolor
+{
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: auto;
+    background: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
 .login-div
 {
     height: auto;
@@ -66,4 +112,47 @@
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 }
+.btn-margin
+{
+    margin-left: 18px;
+}
+.form-for-user-edit label
+{
+    text-align: right;
+    font-weight: bolder;
+}
+.last-dropdown
+{
+    position:absolute;right:20px;
+    float:right;
+}
+.for-a-tag-in-menu
+{
+    color:white;
+}
+.for-a-tag-in-menu:hover
+{
+    color:white;
+}   
+.red-color
+{
+    color: red;
+}
+.hide-text
+{
+    display: none;
+}
+.show-text
+{
+    display: block;
+}
+.profile-img
+{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+
+
 

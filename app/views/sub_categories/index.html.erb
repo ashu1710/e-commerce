@@ -3,12 +3,13 @@
         <div class="col-md-7">
             <table class="table table-bordered  bgcolor-table-form">   
                 <tr>
-                    <td>Name</td>
+                    <td>Category Name</td>
+                    <td>Sub-Category Name</td>
                     <td>Action</td>
                 </tr>
 
-                <tbody id="category_tbl">
-                    <%= render partial: "category", collection: @categories, as: :category  %>
+                <tbody id="sub_category_tbl">
+                    <%= render partial: "sub_category", collection: @subcategories, as: :sub_category  %>
                 </tbody>
             </table>
         </div>

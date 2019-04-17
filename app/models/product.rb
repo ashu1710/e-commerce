@@ -8,7 +8,7 @@ class Product < ApplicationRecord
 
 
   #validates
-  validates :name, presense: true
-  validates :price, presense: true, numericality: true
+  validates :name, presence: true, numericality: true
+  validates :price, presence: true
 
 end

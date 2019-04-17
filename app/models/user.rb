@@ -5,12 +5,13 @@ class User < ApplicationRecord
 
   #relationship 
 
-  has_one :sellers, dependent: :destroy
   has_many :products, dependent: :destroy
   has_one :cart, dependent: :destroy
   has_many :addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_many :advertisements, dependent: :destroy
+
+  has_one_attached :avatar
 
   #validation
 

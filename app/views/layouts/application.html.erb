@@ -10,17 +10,119 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-sm topbar">
 
-    <div class="topbar">
-        <div class="container">
-            <div class="navbar-header">
-                <%= link_to  "E-commerce", root_path, class: 'navbar-brand upcase anchor-ecomm-text-color'%>
-                <% if user_signed_in? %>
-                    <%= link_to  "Logout", destroy_user_session_path, method: :delete, class: 'navbar-brand upcase anchor-ecomm-text-color'%>    
+        <ul class="navbar-nav font-hover-menu">
+            
+            <li class="nav-item">
+                <%= link_to  "E-commerce", root_path, class: 'navbar-brand upcase anchor-ecomm-text-color ' %>
+            </li>
+
+            <% if user_signed_in? %>
+
+                <% if current_user.user_role == 'Admin' %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle for-a-tag-in-menu" href="#" id="navbardrop" data-toggle="dropdown">
+                            User
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Manage User</a>
+                            <a class="dropdown-item" href="#">Manage Advertisement</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle for-a-tag-in-menu" href="#" id="navbardrop" data-toggle="dropdown">
+                            Product
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Manage Product</a>
+                            <%= link_to "Manage Product size", product_sizes_path, class: 'dropdown-item' %>
+                            <%= link_to "Manage Product Color", product_colors_path, class: 'dropdown-item' %>
+                            <a class="dropdown-item" href="#">Manage Cart</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link for-a-tag-in-menu" href="#" id="navbardrop" data-toggle="dropdown">
+                            Manage Coupon
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link for-a-tag-in-menu" href="#" id="navbardrop" data-toggle="dropdown">
+                            Manage Order
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle for-a-tag-in-menu" href="#" id="navbardrop" data-toggle="dropdown">
+                            Category
+                        </a>
+                        <div class="dropdown-menu">
+                            <%= link_to  "Manage Category", categories_path, class: 'dropdown-item' %>
+                            <%= link_to  "Manage Sub-Category", sub_categories_path, class: 'dropdown-item' %>
+                        </div>
+                    </li>
+
+                <% else %>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link for-a-tag-in-menu" href="#" id="navbardrop" data-toggle="dropdown">
+                            Home
+                        </a>
+                    </li>
+
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle for-a-tag-in-menu" href="#" id="navbardrop" data-toggle="dropdown">
+                            Product
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Men</a>
+                            <a class="dropdown-item" href="#">Women</a>
+                            <a class="dropdown-item" href="#">Kids</a>
+                        </div>
+                    </li>
+
+                    <% if current_user.user_role == 'Seller' %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle for-a-tag-in-menu" href="#" id="navbardrop" data-toggle="dropdown">
+                                Manage Product
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Manage Product</a>
+                                <a class="dropdown-item" href="#">Manage Order</a>
+                            </div>
+                        </li>
+
+                    <% end %>
+    
+
                 <% end %>
-            </div>
-        </div>
-    </div>
+
+                 <li class="nav-item dropdown last-dropdown">
+                    <a class="nav-link dropdown-toggle for-a-tag-in-menu" href="#" id="navbardrop" data-toggle="dropdown">
+                        <%= current_user.email %>
+                    </a>
+                    <div class="dropdown-menu">
+                        <%= link_to "My Profile",  edit_user_registration_path , class: 'dropdown-item'%>
+                        <%= link_to "Log out",  destroy_user_session_path , method: :delete ,class: 'dropdown-item'%>
+                    </div>
+                </li>
+
+
+            <% end %>
+        </ul>
+
+    </nav>
+
+
+
+
+
     
     <% if notice %>
         <div class="alert alert-success get-margin-at-bottom">

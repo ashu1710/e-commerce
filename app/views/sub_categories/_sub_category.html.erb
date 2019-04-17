@@ -1,0 +1,5 @@
+<tr>
+    <td><%= sub_category.category.name %></td>
+    <td><%= sub_category.name %></td>
+    <td><%= link_to  "Delete",  sub_category_path(sub_category), method: :delete, remote: true ,class: 'btn btn-danger delete_sub_category' %></td>
+</tr>

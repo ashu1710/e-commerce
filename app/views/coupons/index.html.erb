@@ -1,22 +1,31 @@
 <div class="container">
     <div class="row get-margin">
+      
         <div class="col-md-7">
             <table class="table table-bordered  bgcolor-table-form">   
                 <tr>
-                    <td>Name</td>
+                    <td>Coupon Code</td>
+                    <td>Valid From</td>
+                    <td>Valid To</td>
+                    <td>Min Amt. Cart</td>
+                    <td>Discount</td>
                     <td>Action</td>
                 </tr>
 
-                <tbody id="category_tbl">
-                    <%= render partial: "category", collection: @categories, as: :category  %>
+                <tbody id="coupon_tbl">
+                    <%= render partial: "coupon", collection: @coupons, as: :coupon  %>
                 </tbody>
+                
             </table>
         </div>
+      
         <div class="col-md-1">
 
         </div>
+      
         <div class="col-md-4 insert-db-form">
             <%= render 'form' %>
         </div>
+    
     </div>
 </div>

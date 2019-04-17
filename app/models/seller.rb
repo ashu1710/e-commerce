@@ -2,7 +2,7 @@ class Seller < ApplicationRecord
     
     #relationship
 
-    belongs_to :user
+    # belongs_to :user
  
     #validation
 

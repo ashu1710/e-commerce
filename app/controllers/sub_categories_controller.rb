@@ -1,15 +1,17 @@
-class CategoriesController < ApplicationController
+class SubCategoriesController < ApplicationController
     before_action :authenticate_user!
 
     def index
         @categories = Category.all
-        @category = Category.new
+        @subcategories = SubCategory.all
+        @subcategory = SubCategory.new
     end
 
+
     def create 
-        @category = Category.new(category_params)
+        @subcategory = SubCategory.new(subcategory_params)
         respond_to do |format|
-            if @category.save
+            if @subcategory.save
                 format.js 
             else
                 format.js 
@@ -18,9 +20,9 @@ class CategoriesController < ApplicationController
     end
 
     def destroy
-        @category = Category.find(params[:id])
+        @subcategory = SubCategory.find(params[:id])
         respond_to do |format|
-            if @category.destroy
+            if @subcategory.destroy
                 format.js
             else
                 format.js
@@ -29,7 +31,8 @@ class CategoriesController < ApplicationController
     end
 
     private
-    def category_params
-        params.require(:category).permit(:name)
+    def subcategory_params
+        params.require(:sub_category).permit(:category_id, :name)
     end
+
 end

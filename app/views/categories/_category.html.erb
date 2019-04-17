@@ -1,0 +1,9 @@
+<tr>
+    <td><%= category.name %></td>
+    <%
+=begin%>
+ <td><%= link_to  "Edit", edit_category_path(category) ,class: 'btn btn-danger' %></td> 
+<%
+=end%>
+    <td><%= link_to  "Delete", category_path(category), method: :delete, remote: true ,class: 'btn btn-danger delete_category' %></td>
+</tr>
