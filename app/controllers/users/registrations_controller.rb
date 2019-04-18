@@ -56,7 +56,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    categories_path
+      if current_user.user_role == 'Admin'
+          dashboard_index_path
+      else
+          home_index_path
+      end
   end
 
 

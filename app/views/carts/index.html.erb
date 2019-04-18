@@ -1,0 +1,54 @@
+<div class="container get-margin">
+    <div class="row">
+        <div class= "col-md-2">
+        </div>
+
+        <div class="col-md-8">
+
+            <table class="table table-bordered" style="background-color:white;">
+                <tr>
+                    <td>Product Name</td>
+                    <td>Product Price</td>
+                    <td>Qty</td>
+                    <td>Total Amount</td>
+                    <td>Action</td>
+                </tr>
+
+                <%
+=begin%>
+ <% @sellers.each do |seller| %>
+                    <tr>
+                        <td><%= seller.email %></td>
+                        <td><%= seller.phone %></td>
+                        <td><%= seller.seller_name %></td>
+                        <td><%= seller.address %></td>
+                        <td><%= seller.gst_no %></td>
+                        <td><%= seller.seller_type %></td>
+                        <td><%= seller.delivery_charge %></td>
+                        <td><%= link_to edit_user_path(seller) do %>
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            <% end %>
+
+                            <%= link_to user_path(seller), method: :delete, class: 'delete_user', remote: 'true' do %>
+                                <i class="glyphicon glyphicon-trash"></i>
+                            <% end %>
+                        </td>
+                    </tr>
+                <% end %> 
+<%
+=end%>
+            </table>
+
+
+        </div>
+
+        <div class="col-md-2">
+        </div>
+
+    </div>
+</div>
+
+
+
+
+

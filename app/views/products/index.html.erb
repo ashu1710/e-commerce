@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row get-margin">
+        <div class="col-md-7">
+            <table class="table table-bordered  bgcolor-table-form">   
+                <tr>
+                    <td>Product Name</td>
+                    <td>Price</td>
+                    <td>Image</td>
+                    <td>Action</td>
+                </tr>
+
+                <tbody id="product_tbl">
+                    <%= render partial: "product", collection: @products, as: :product  %>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-1">
+
+        </div>
+        
+        <div class="col-md-4 insert-db-form">
+            <%= render 'form' %>
+        </div>
+    </div>
+</div>

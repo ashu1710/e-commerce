@@ -1,0 +1,4 @@
+$('#product_sub_category_id').empty().append( $('<option>Select the Sub-category</option>'));
+<% @subcategories.each do |subcategory| %>
+    $('#product_sub_category_id').append($('<option value="<%= subcategory.id %>"><%= subcategory.name %></option>'));
+<% end %>

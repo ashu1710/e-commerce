@@ -26,8 +26,8 @@
                             User
                         </a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Manage User</a>
-                            <a class="dropdown-item" href="#">Manage Advertisement</a>
+                            <%= link_to  "Manage User", users_path, class: 'dropdown-item' %>
+                            <%= link_to  "Manage Advertisement", advertisements_path, class: 'dropdown-item' %>
                         </div>
                     </li>
 
@@ -39,14 +39,12 @@
                             <a class="dropdown-item" href="#">Manage Product</a>
                             <%= link_to "Manage Product size", product_sizes_path, class: 'dropdown-item' %>
                             <%= link_to "Manage Product Color", product_colors_path, class: 'dropdown-item' %>
-                            <a class="dropdown-item" href="#">Manage Cart</a>
+                            <%= link_to  "Manage Cart", carts_path, class: 'dropdown-item' %>
                         </div>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link for-a-tag-in-menu" href="#" id="navbardrop" data-toggle="dropdown">
-                            Manage Coupon
-                        </a>
+                        <%= link_to  "Manage Coupon", coupons_path, class: 'nav-link for-a-tag-in-menu', id: 'navbardrop' %>
                     </li>
 
 
@@ -93,7 +91,7 @@
                                 Manage Product
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Manage Product</a>
+                                <%= link_to  "Manage Product", products_path, class: 'dropdown-item' %>
                                 <a class="dropdown-item" href="#">Manage Order</a>
                             </div>
                         </li>

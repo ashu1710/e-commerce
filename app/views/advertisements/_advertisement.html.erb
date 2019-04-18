@@ -1,0 +1,12 @@
+<tr>
+    <td><%= advertisement.user.email %></td>
+    <td><%= advertisement.user.phone %></td>
+    <td>
+        <%= link_to url_for(advertisement.image), target: '_blank' do %>
+            <%= image_tag  url_for(advertisement.image), class: 'advertisement-img' %>
+        <% end %>
+    </td>
+    <td><%= advertisement.start_date %></td>
+    <td><%= advertisement.end_date %></td>
+    <td><%= link_to  "Delete", advertisement_path(advertisement), method: :delete, remote: true ,class: 'btn btn-danger delete_advertisement' %></td>
+</tr> 

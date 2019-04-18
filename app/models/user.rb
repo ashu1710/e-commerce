@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   #validation
 
-  validates :phone, presence: true, uniqueness: true, length: { is: 10 }, numericality: { only_integer: true }
-  validates :email, presence: true, uniqueness: true
+  # validates :phone, presence: true, uniqueness: true, length: { is: 10 }, numericality: { only_integer: true }
+  # validates :email, presence: true, uniqueness: true
 
 end

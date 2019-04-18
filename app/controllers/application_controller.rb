@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
         if current_user.user_role == 'Admin'
             dashboard_index_path
         else
-            root_path
+            home_index_path
         end
     end
 end

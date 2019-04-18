@@ -17,6 +17,12 @@
  @import 'bootstrap/glyphicons';
  @import 'font-awesome';
 
+.advertisement-img
+{
+    height: 70px;
+    width: 70px;
+}
+
  .for-margin-sign-up-link
  {
      margin-top: 10px;
@@ -141,6 +147,16 @@
 .hide-text
 {
     display: none;
+}
+.get-margin-product
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.hide-text1
+{
+    display: none !important;
 }
 .show-text
 {

@@ -1,0 +1,52 @@
+<%= form_for( @product, remote: true) do |f| %>
+    
+    <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :image %>
+        <%= f.file_field :images, class: 'form-control', required: true %>
+    </div>    
+    
+    <div class="form-group">
+        <%= f.label :price %>
+        <%= f.text_field :price, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :category_name %>
+        <%= f.select :description, options_from_collection_for_select(@categories, "id", "name"), {  prompt: "Select Category" }, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :sub_category_name %>
+        <%= f.select :sub_category_id, options_from_collection_for_select(@subcategories, "id", "name"), {  prompt: "Select Sub category" }, class: "form-control", required: true %>
+    </div>
+
+
+    <div class="form-group">
+        <%= f.label :product_size %>
+        <%= select_tag "product_size", options_from_collection_for_select(@product_size, "id", "size"),  class: "form-control", required: true %>
+    </div>
+
+
+
+    <div class="form-group">
+        <%= f.label :product_color %>
+        <%= select_tag "product_color", options_from_collection_for_select(@product_color, "id", "name"),  class: "form-control", required: true %>
+    </div>
+
+
+
+
+
+   
+
+
+    <div class="form-group">
+        <%= f.submit "Add",class: 'btn btn-success' %>
+    </div>
+
+<% end %>

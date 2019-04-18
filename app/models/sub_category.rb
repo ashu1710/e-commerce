@@ -4,4 +4,8 @@ class SubCategory < ApplicationRecord
 
   belongs_to :category
 
+  #validtion 
+
+  validates :name, presence: true
+
 end

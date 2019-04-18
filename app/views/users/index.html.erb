@@ -1,0 +1,83 @@
+<div class="container" style="background-color:white;">
+    <ul class="nav nav-tabs">
+        <li>
+            <a class="nav-link active" data-toggle="tab" href="#Seller" >Seller</a>
+        </li>
+        <li>
+            <a class="nav-link" data-toggle="tab" href="#Customer">Customer</a>
+        </li>
+    </ul>
+
+    <div class="row">
+        <div class="col-md-8">
+        <div class="tab-content">
+            <div id="Seller" class="tab-pane active">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Email</td>
+                        <td>Phone</td>
+                        <td>Seller Name</td>
+                        <td>Seller Address</td>
+                        <td>Gst No</td>
+                        <td>Seller Type</td>
+                        <td>Delivery Charge</td>
+                        <td>Action</td>
+                    </tr>
+
+                    <% @sellers.each do |seller| %>
+                        <tr>
+                            <td><%= seller.email %></td>
+                            <td><%= seller.phone %></td>
+                            <td><%= seller.seller_name %></td>
+                            <td><%= seller.address %></td>
+                            <td><%= seller.gst_no %></td>
+                            <td><%= seller.seller_type %></td>
+                            <td><%= seller.delivery_charge %></td>
+                            <td><%= link_to edit_user_path(seller) do %>
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                <% end %>
+
+                                <%= link_to user_path(seller), method: :delete, class: 'delete_user', remote: 'true' do %>
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </table>
+            </div>
+
+            <div id="Customer" class="tab-pane get-margin">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Email</td>
+                        <td>Phone</td>
+                        <td>Action</td>
+                    </tr>
+
+                    <% @customers.each do |customer| %>
+                        <tr>
+                            <td><%= customer.email %></td>
+                            <td><%= customer.phone %></td>
+                            <td><%= link_to edit_user_path(customer) do %>
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                <% end %>
+
+                                <%= link_to user_path(customer), method: :delete, class: 'delete_user', remote: 'true' do %>
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </table>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
+
+
+
+
+

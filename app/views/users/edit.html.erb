@@ -1,0 +1,112 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+
+        <div class="col-md-6 login-div">
+
+            <% if @user.user_role == 'Customer'  %>    
+                <h4 class="text-center">Customer</h4>
+
+                <%= form_for( @user ) do |f| %>
+                
+                    <div class="field form-group">
+                        <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email", placeholder: 'Enter Email Address' %>
+                    </div>
+                    
+                    <div class="field form-group">
+                        <%= f.text_field :phone, class: 'form-control', autofocus: true, autocomplete: "email",placeholder: 'Enter Phone Number', maxlength: 10,minlenght: 10 %>
+                    </div>
+
+                    <div class="field form-group">
+                        <%= f.select :user_role, options_for_select(['Seller', 'Customer'], @user.user_role),{}, class: 'form-control' %>
+                    </div>
+
+                    
+
+                    <div class="actions">
+                        <%= f.submit "Update", class: 'btn btn-success' %>
+                    </div>
+
+                    
+
+                <% end %>
+
+            <% else %>
+
+
+
+                <%= form_for( @user ) do |f| %>
+                
+                    <h4 class="text-center">Seller</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="field form-group">
+                                <%= f.label :email %>
+                                <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email", placeholder: 'Enter Email Address' %>
+                            </div>
+                            
+                            <div class="field form-group">
+                                <%= f.label :user_role %>
+                                <%= f.select :user_role, options_for_select(['Seller', 'Customer'], @user.user_role),{}, class: 'form-control' %>
+
+                            </div>
+
+                            <div class="field form-group">
+                                <%= f.label :phone %>
+                                <%= f.text_field :phone, class: 'form-control', autofocus: true, autocomplete: "email",placeholder: 'Enter Phone Number', maxlength: 10,minlenght: 10 %>
+                            </div>
+
+                            <div class="field form-group">
+                                <%= f.label :seller_name %>
+                                <%= f.text_field :seller_name, class: 'form-control', placeholder: 'Enter Seller Name', maxlength: 10,minlenght: 10 %>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="col-md-6">
+                            
+                            <div class="field form-group">
+                                <%= f.label :address %>
+                                <%= f.text_field :address, class: 'form-control', placeholder: 'Enter address', maxlength: 10,minlenght: 10 %>
+                            </div>
+
+                            <div class="field form-group">
+                                <%= f.label :gst_no %>
+                                <%= f.text_field :gst_no, class: 'form-control', placeholder: 'Enter GST No', maxlength: 10,minlenght: 10 %>
+                            </div>
+
+
+                            <div class="field form-group">
+                                <%= f.label :seller_type %>
+                                <%= f.select :seller_type, options_for_select([['Select Seller Type',''],'Wholeseller', 'Retailer'], @user.seller_type),{}, class: 'form-control' %>
+                            </div>
+
+                            <div class="field form-group">
+                                <%= f.label :delivery_charge %>
+                                <%= f.text_field :delivery_charge, class: 'form-control', placeholder: 'Enter Delivery Charge', maxlength: 10,minlenght: 10 %>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="actions">
+                            <%= f.submit "Update", class: 'btn btn-success btn-margin' %>
+                        </div>
+
+                    <div>
+
+                <% end %>
+  
+            <% end %>
+        </div>
+
+        <div class="col-md-3">
+        </div>
+    </div>
+</div>
+
+
+
+
+

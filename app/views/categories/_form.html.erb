@@ -1,7 +1,8 @@
-<%= form_for( @category , remote: true) do |f| %>
+<%= form_for( @category , remote: true, html: { onsubmit: 'check_validation_categories()' }) do |f| %>
     <div class="form-group">
         <%= f.label :category_name %>
-        <%= f.text_field :name,class: 'form-control' %>
+        <%= f.text_field :name,class: 'form-control'%>
+        <p class="hide-text red-color">category name is required</p>
     </div>
     
     

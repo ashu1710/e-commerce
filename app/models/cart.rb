@@ -9,8 +9,8 @@ class Cart < ApplicationRecord
 
   #validates
 
-  validates :qty, presense: true, numericality: { only_integer: true } 
-  validates :tot_amt, presense: true, numericality: true 
+  # validates :qty, presense: true, numericality: { only_integer: true } 
+  # validates :tot_amt, presense: true, numericality: true 
 
 
 end

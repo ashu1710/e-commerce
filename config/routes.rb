@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   resources :product_colors
   resources :product_sizes
   resources :coupons
+  resources :users
+  resources :carts
+  resources :advertisements
+  resources :products
+  resources :home, only: [:index]
   resources :dashboard, only: [:index]
   
-  root 'categories#index'
+  root 'home#index'
 end

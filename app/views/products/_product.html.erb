@@ -1,0 +1,12 @@
+<tr>
+    <td><%= product.name %></td>
+    <td><%= product.price %></td>
+    <td>   
+        <% if product.images.attached? %>
+            <%= image_tag  url_for(product.images), class: 'advertisement-img' %>
+        <% else %>
+            <%= image_tag  "product.png", class: 'advertisement-img' %>
+        <% end %>
+    </td>
+    <td><%= link_to  "Delete", product_path(product), method: :delete, remote: true ,class: 'btn btn-danger delete_product' %></td>
+</tr> 

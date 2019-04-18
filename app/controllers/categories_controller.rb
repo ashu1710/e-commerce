@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
             if @category.save
                 format.js 
             else
-                format.js 
+                format.js { render layout: false, content_type: 'text/javascript' }                                
             end
         end
     end
@@ -23,7 +23,6 @@ class CategoriesController < ApplicationController
             if @category.destroy
                 format.js
             else
-                format.js
             end
         end
     end

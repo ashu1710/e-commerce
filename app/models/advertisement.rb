@@ -3,6 +3,8 @@ class Advertisement < ApplicationRecord
   #relationship
   belongs_to :user
 
+  has_one_attached :image
+
   #validation
   validate :end_date_must_afer_start_date
   validates :start_date, :end_date, presence: true

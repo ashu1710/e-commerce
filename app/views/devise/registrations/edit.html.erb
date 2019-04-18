@@ -14,163 +14,163 @@
 
     <div class="row">
         <div class="col-md-8">
-        <div class="tab-content">
-            <div id="Profile" class="tab-pane active">
-                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put ,class: 'form-for-user-edit'}) do |f| %>
-                    <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="tab-content">
+                <div id="Profile" class="tab-pane active">
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put ,class: 'form-for-user-edit'}) do |f| %>
+                        <%= render "devise/shared/error_messages", resource: resource %>
 
-                    <div class="form-group">
-                    <div class="row">
-                            <label class= "col-md-4"></label>
-                            <% if current_user.avatar.attached? %>
-                                <div class="col-md-8">
-                                    <%= image_tag  url_for(current_user.avatar), class: 'profile-img' %>
-                                </div>
-                            <% else %>
-                                <div class="col-md-8">
-                                    <%= image_tag  "no-profile.jpg", class: 'profile-img' %>
-                                </div>
-                            <% end %>
-                        </div>
-                    </div>
-
-                    <div class="field form-group">
+                        <div class="form-group">
                         <div class="row">
-                            <%= f.label :email,class: "col-md-4" %>
-                            <div class="col-md-8">
-                                <%= current_user.email %>
-                                <p style="font-size: 12px;">Your email is for logging in and cannot be changed.</p>
+                                <label class= "col-md-4"></label>
+                                <% if current_user.avatar.attached? %>
+                                    <div class="col-md-8">
+                                        <%= image_tag  url_for(current_user.avatar), class: 'profile-img' %>
+                                    </div>
+                                <% else %>
+                                    <div class="col-md-8">
+                                        <%= image_tag  "no-profile.jpg", class: 'profile-img' %>
+                                    </div>
+                                <% end %>
                             </div>
                         </div>
-                    </div>
 
-
-                    <div class="field form-group">
-                        <div class="row">
-                            <%= f.label :Phone,class: "col-md-4" %>
-                            <div class="col-md-8">
-                                <%= f.text_field :phone, class: 'form-control',value: @current_user.phone %> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="field form-group">
-                        <div class="row">
-                            <%= f.label :profile,class: "col-md-4" %>
-                            <div class="col-md-8">
-                                <%= f.file_field :avatar %>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <% if current_user.user_role == 'Seller' %>
                         <div class="field form-group">
                             <div class="row">
-                                <%= f.label :Seller_name,class: "col-md-4" %>
+                                <%= f.label :email,class: "col-md-4" %>
                                 <div class="col-md-8">
-                                    <%= f.text_field :seller_name, class: 'form-control', value: @current_user.seller_name %>                                     
+                                    <%= current_user.email %>
+                                    <p style="font-size: 12px;">Your email is for logging in and cannot be changed.</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="field form-group">
+                            <div class="row">
+                                <%= f.label :Phone,class: "col-md-4" %>
+                                <div class="col-md-8">
+                                    <%= f.text_field :phone, class: 'form-control',value: @current_user.phone %> 
                                 </div>
                             </div>
                         </div>
 
                         <div class="field form-group">
                             <div class="row">
-                                <%= f.label :address,class: "col-md-4" %>
+                                <%= f.label :profile,class: "col-md-4" %>
                                 <div class="col-md-8">
-                                    <%= f.text_field :address, class: 'form-control', value: @current_user.address %>                                     
+                                    <%= f.file_field :avatar %>
                                 </div>
                             </div>
                         </div>
+
+
+                        <% if current_user.user_role == 'Seller' %>
+                            <div class="field form-group">
+                                <div class="row">
+                                    <%= f.label :Seller_name,class: "col-md-4" %>
+                                    <div class="col-md-8">
+                                        <%= f.text_field :seller_name, class: 'form-control', value: @current_user.seller_name %>                                     
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field form-group">
+                                <div class="row">
+                                    <%= f.label :address,class: "col-md-4" %>
+                                    <div class="col-md-8">
+                                        <%= f.text_field :address, class: 'form-control', value: @current_user.address %>                                     
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field form-group">
+                                <div class="row">
+                                    <%= f.label :gst_no,class: "col-md-4" %>
+                                    <div class="col-md-8">
+                                        <%= f.text_field :gst_no, class: 'form-control', value: @current_user.gst_no %>                                     
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field form-group">
+                                <div class="row">
+                                    <%= f.label :delivery_charge,class: "col-md-4" %>
+                                    <div class="col-md-8">
+                                        <%= f.text_field :delivery_charge, class: 'form-control', value: @current_user.delivery_charge %>                                     
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="field form-group">
+                                <div class="row">
+                                    <%= f.label :Seller_type,class: "col-md-4" %>
+                                    <div class="col-md-8">
+                                        <%= @current_user.seller_type %>                                     
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        <% end %>
+
+                        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                        <% end %>
+
+
+                        <hr>
+
+                        <p>Leave these fields blank if you don't want to change your password.</p>
 
                         <div class="field form-group">
                             <div class="row">
-                                <%= f.label :gst_no,class: "col-md-4" %>
+                                <%= f.label :password,class: "col-md-4" %>
                                 <div class="col-md-8">
-                                    <%= f.text_field :gst_no, class: 'form-control', value: @current_user.gst_no %>                                     
+                                    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="field form-group">
                             <div class="row">
-                                <%= f.label :delivery_charge,class: "col-md-4" %>
+                                <%= f.label :password_confirmation,class: "col-md-4" %>
                                 <div class="col-md-8">
-                                    <%= f.text_field :delivery_charge, class: 'form-control', value: @current_user.delivery_charge %>                                     
+                                    <%= f.password_field :password_confirmation, autocomplete: "new-password",class: 'form-control' %>      
                                 </div>
                             </div>
                         </div>
+
+                        <hr>
+                        <p>You must enter your current password to make changes.</p>
 
                         <div class="field form-group">
                             <div class="row">
-                                <%= f.label :Seller_type,class: "col-md-4" %>
+                                <%= f.label :current_password,class: "col-md-4" %>
                                 <div class="col-md-8">
-                                    <%= @current_user.seller_type %>                                     
+                                    <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>     
+                                    <p class="hide-text red-color">current password is required</p>
                                 </div>
                             </div>
                         </div>
 
-
+                        <div class="action form-group">
+                            <div class="row">
+                                <label class="col-md-4"></label>
+                                <div class="col-md-8">
+                                    <%= f.submit "Update Profile", class: 'btn btn-success' %>
+                                    <%= link_to "Cancel", root_path ,class: 'btn btn-light' %>
+                                </div>
+                            </div>
+                        </div>
+                        
                     <% end %>
+                </div>
 
-                    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-                    <% end %>
-
-
-                    <hr>
-
-                    <p>Leave these fields blank if you don't want to change your password.</p>
-
-                    <div class="field form-group">
-                        <div class="row">
-                            <%= f.label :password,class: "col-md-4" %>
-                            <div class="col-md-8">
-                                  <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="field form-group">
-                        <div class="row">
-                            <%= f.label :password_confirmation,class: "col-md-4" %>
-                            <div class="col-md-8">
-                                  <%= f.password_field :password_confirmation, autocomplete: "new-password",class: 'form-control' %>      
-                            </div>
-                        </div>
-                    </div>
-
-                    <hr>
-                    <p>You must enter your current password to make changes.</p>
-
-                    <div class="field form-group">
-                        <div class="row">
-                            <%= f.label :current_password,class: "col-md-4" %>
-                            <div class="col-md-8">
-                                <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>     
-                                <p class="hide-text red-color">current password is required</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="action form-group">
-                        <div class="row">
-                            <label class="col-md-4"></label>
-                            <div class="col-md-8">
-                                <%= f.submit "Update Profile", class: 'btn btn-success' %>
-                                <%= link_to "Cancel", root_path ,class: 'btn btn-light' %>
-                            </div>
-                        </div>
-                    </div>
-                    
-                <% end %>
+                <div id="Order" class="tab-pane get-margin">
+                
+                </div>
             </div>
-
-            <div id="Order" class="tab-pane get-margin">
-              
-            </div>
-
         </div>
         <div class="col-md-4">
         </div>
