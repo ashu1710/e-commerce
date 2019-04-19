@@ -22,7 +22,6 @@ class CategoriesController < ApplicationController
         respond_to do |format|
             if @category.destroy
                 format.js
-            else
             end
         end
     end

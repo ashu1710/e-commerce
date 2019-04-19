@@ -19,9 +19,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    @carts = Cart.where(user_id: current_user.id)
+    @carts.each do |cart|
+        Order.create(user_id: current_user.id, qty: cart.qty,order_received_date:  Date.today + 1, product_size_color_id: cart.product_size_color.id, address_id: session[:address_id])
+    end
+    @orders = Order.where(user_id: current_user.id).order(id: :desc).page(params[:page]).per(5)
+    @carts.delete_all
+    super
+  end
 
   # PUT /resource
   # def update

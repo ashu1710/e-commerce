@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row get-margin">
+        
+        <div class="col-md-1">
+        </div>
+
+        <div class="col-md-10">
+            <table class="table table-bordered  bgcolor-table-form">   
+                <tr>
+                    <td>Product Name</td>
+                    <td>Price</td>
+                    <td>Image</td>
+                    <% if current_user.user_role == 'Admin' %>
+                        <td>Category Name</td>
+                    <% end %>
+                    <td>Sub-category Name</td>
+                    <% if current_user.user_role == 'Admin' %>
+                        <td>Product Color</td>
+                        <td>Product Size</td>
+                    <% end %>
+                    
+                    <td>Action</td>
+                </tr>
+
+                <tbody id="product_tbl">
+                    <%= render partial: "product", collection: @products, locals: { subcategories: @subcategoies } , as: :product  %>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="col-md-1">
+        </div>
+
+    </div>
+</div>

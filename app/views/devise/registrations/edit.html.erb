@@ -168,7 +168,30 @@
                 </div>
 
                 <div id="Order" class="tab-pane get-margin">
-                
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>Image</td>
+                            <td>Product Name</td>
+                            <td>Price</td>
+                            <td>qty
+                            <td>tot. amt</td>
+                            <td>Order Receiving Date</td>
+                        </tr>
+
+                        <% @orders.each do |order| %>
+                            <tr>
+                                <td><%= image_tag url_for(order.product_size_color.product.images.first),class: 'advertisement-img' %></td>
+                                <td><%= order.product_size_color.product.name %></td>
+                                <td><%= order.product_size_color.product.price %></td>
+                                <td><%= order.qty %></td>
+                                <td><%= (order.product_size_color.product.price.to_i) *(order.qty.to_i) %></td>
+                                <td><%= order.order_received_date %></td>
+                            </tr>
+                        <% end %>
+
+                        <%= paginate @orders %>
+
+                    </table>
                 </div>
             </div>
         </div>

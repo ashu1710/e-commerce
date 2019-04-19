@@ -8,9 +8,15 @@ Rails.application.routes.draw do
   resources :users
   resources :carts
   resources :advertisements
-  resources :products
-  resources :home, only: [:index]
+  resources :addresses
+  resources :orders
+  resources :product_size_colors, only: [:update]
+  resources :products, except: [:show]
+  resources :home
   resources :dashboard, only: [:index]
   
+
+  get 'products/listofproduct', to: 'products#listofproduct'
+  get 'addresses/:id/directselect', to: 'addresses#directselect', as: 'selectaddress'
   root 'home#index'
 end

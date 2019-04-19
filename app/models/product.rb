@@ -5,8 +5,7 @@ class Product < ApplicationRecord
   belongs_to :sub_category
 
   has_many :product_size_colors, dependent: :destroy
-
-  has_one_attached :images
+  has_many_attached :images
 
   #validates
   validates :name, presence: true

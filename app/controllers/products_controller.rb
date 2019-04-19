@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
     before_action :authenticate_user!
+    before_action :check_user, only: [:index]
 
     def index
         @product = Product.new
-        @products = Product.where(user_id: current_user.id)
+        @products = ProductSizeColor.all
         @categories = Category.all
         category_id = params[:category_id]
         @product_color = ProductColor.all
@@ -21,8 +22,7 @@ class ProductsController < ApplicationController
                 ProductSizeColor.create(product_id: @product.id, product_color_id: params[:product_color], product_size_id: params[:product_size], available_stock: true)
                 format.js  
             end
-          end
-    
+        end
     end
 
 
@@ -35,12 +35,21 @@ class ProductsController < ApplicationController
         end 
     end
 
+    def listofproduct
+        @products = ProductSizeColor.all
+    end
+
 
     private
     def product_params
         params[:product][:user_id] = current_user.id
-        params.require(:product).permit(:user_id, :images, :name, :price, :sub_category_id, :images)
-        
+        params.require(:product).permit(:user_id, :images, :name, :price, :sub_category_id, images: [] )    
+    end
+
+    def check_user
+        if current_user.user_role != 'Seller'
+            redirect_to root_path
+        end
     end
 end
 

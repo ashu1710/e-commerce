@@ -1,0 +1,61 @@
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <%= image_tag  "s1.jpg", class: 'silder' %>
+        </div>
+        <div class="carousel-item">
+            <%= image_tag  "s2.jpg", class: 'silder' %>
+        </div>
+        <div class="carousel-item">
+            <%= image_tag "s3.jpg", class: 'silder' %>
+        </div>
+    </div>
+
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+
+</div>
+
+<div class="container bg-color">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Men's Collection</h3>
+            <hr>
+            <div class="row">
+
+                <% @products.each do |product| %>                    
+                    <div class="col-md-3">
+                        <%= form_for( @cart , remote: true) do |f| %>
+                            <div class="card">
+                                <%= f.hidden_field :product_size_color_id, value: product.id %>
+                                <%= f.hidden_field :tot_amt, value: product.product.price %>
+                                <%= image_tag  url_for(product.product.images.first), class: 'card-img-top' %>
+                                <div class="card-body">
+                                    <h4 class="card-title"><%= product.product.name %> </h4>
+                                    <h4 class="card-title"><%= product.product.price %> </h4>
+                                    <%= f.submit "Add to Cart", class: 'btn btn-primary' %>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+
+                    <div class="col-md-1">
+                        
+                    </div>
+
+                <% end %>
+            </div> 
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="row get-margin">
+        <div class="col-md-7 insert-db-form">
+            <%= form_for( @address ) do |f| %>
+                    
+                <div class="form-group">
+                    <%= f.label :addrees1 %>
+                    <%= f.text_field :address1, class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :pincode %>
+                    <%= f.text_field :pincode, class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :area %>
+                    <%= f.text_field :area, class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :city %>
+                    <%= f.text_field :city, class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :state %>
+                    <%= f.text_field :state, class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.submit "Deliver to this Address", class: 'btn btn-success' %>
+                </div>
+
+
+            <% end %>
+        </div>
+        <div class="col-md-1">
+
+        </div>
+        <% @count = 1 %>
+        <div class="col-md-4 insert-db-form">
+            <% @addresses.each do |address| %>
+                Address No <%= @count  %>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Address Line 1 </td>
+                        <td><%= address.address1 %></td>
+                    </tr>
+
+                    <tr>
+                        <td>Area</td>
+                        <td><%= address.area %></td>
+                    </tr>
+
+                    <tr>
+                        <td>City </td><td>
+                        <%= address.city %></td>
+                    </tr>
+
+                    <tr>
+                        <td>State</td>
+                        <td><%= address.state %></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>Pincode</td>
+                        <td><%= address.pincode %></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"> <%= link_to "Deliver to this Address", selectaddress_path(address) ,class: 'btn btn-success' %></td>
+                    </tr>
+                </table>
+                <% @count+= 1  %>
+
+                <hr>
+            <% end %>
+        </div>
+    </div>
+</div>

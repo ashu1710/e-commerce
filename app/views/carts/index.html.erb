@@ -7,6 +7,7 @@
 
             <table class="table table-bordered" style="background-color:white;">
                 <tr>
+                    <td>Product Image</td>
                     <td>Product Name</td>
                     <td>Product Price</td>
                     <td>Qty</td>
@@ -14,32 +15,24 @@
                     <td>Action</td>
                 </tr>
 
-                <%
-=begin%>
- <% @sellers.each do |seller| %>
+                <% @carts.each do |cart| %>
                     <tr>
-                        <td><%= seller.email %></td>
-                        <td><%= seller.phone %></td>
-                        <td><%= seller.seller_name %></td>
-                        <td><%= seller.address %></td>
-                        <td><%= seller.gst_no %></td>
-                        <td><%= seller.seller_type %></td>
-                        <td><%= seller.delivery_charge %></td>
-                        <td><%= link_to edit_user_path(seller) do %>
-                                <i class="glyphicon glyphicon-pencil"></i>
-                            <% end %>
-
-                            <%= link_to user_path(seller), method: :delete, class: 'delete_user', remote: 'true' do %>
+                        <td><%= image_tag url_for(cart.product_size_color.product.images.first), class: 'advertisement-img' %></td>
+                        <td><%= cart.product_size_color.product.name %></td>
+                        <td><%= cart.product_size_color.product.price %></td>
+                        <td><%= cart.qty %></td>
+                        <td><%= cart.tot_amt %></td>
+                        <td><%= link_to cart_path(cart), method: :delete, class: 'delete_cart', remote: 'true' do %>
                                 <i class="glyphicon glyphicon-trash"></i>
                             <% end %>
                         </td>
                     </tr>
                 <% end %> 
-<%
-=end%>
             </table>
 
-
+            <% if @carts.count > 0 %>
+                <%= link_to  "Checkout", addresses_path, class: 'btn btn-success' %>
+            <% end %>
         </div>
 
         <div class="col-md-2">

@@ -1,12 +1,53 @@
-<tr>
-    <td><%= product.name %></td>
-    <td><%= product.price %></td>
-    <td>   
-        <% if product.images.attached? %>
-            <%= image_tag  url_for(product.images), class: 'advertisement-img' %>
-        <% else %>
-            <%= image_tag  "product.png", class: 'advertisement-img' %>
+<% if product.product.user_id == current_user.id %>
+   
+    <tr>
+        <td><%= product.product.name %></td>
+        <td><%= product.product.price %></td>
+        <td>   
+            <% if product.product.images.attached? %>
+                <% product.product.images.each do |image| %>
+                    <%= link_to  url_for(image), target: "_blank" do %>
+                        <%= image_tag  url_for(image), class: 'advertisement-img' %>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <%= image_tag  "product.png", class: 'advertisement-img' %>
+            <% end %>
+        </td>
+        <td><%= product.product.sub_category.name %></td>
+        <td><%= link_to  "Avaiable In Stock", product_size_color_path(product.product), method: :patch, class: 'btn btn-danger edit_product' %>&nbsp;&nbsp;
+            <%= link_to  "Delete", product_path(product.product), method: :delete, class: 'btn btn-danger delete_product' %></td>
+    </tr>
+<% else %>
+
+    <tr>
+        <td><%= product.product.name %></td>
+        <td><%= product.product.price %></td>
+        <td>   
+            <% if product.product.images.attached? %>
+                <% product.product.images.each do |image| %>
+                    <%= link_to  url_for(image), target: "_blank" do %>
+                        <%= image_tag  url_for(image), class: 'advertisement-img' %>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <%= image_tag  "product.png", class: 'advertisement-img' %>
+            <% end %>
+        </td>
+        
+        <% if current_user.user_role == 'Admin' %>
+            <td><%= product.product.sub_category.category.name %></td>
         <% end %>
-    </td>
-    <td><%= link_to  "Delete", product_path(product), method: :delete, remote: true ,class: 'btn btn-danger delete_product' %></td>
-</tr> 
+
+        <td><%= product.product.sub_category.name %></td>
+        
+        <% if current_user.user_role == 'Admin' %>
+            <td><%= product.product_color.name %></td>
+            <td><%= product.product_size.size %></td>
+        <% end %>
+
+        <td><%= link_to  "Delete", product_path(product.product), method: :delete, remote: true ,class: 'btn btn-danger delete_product' %></td>
+    </tr>
+
+
+<% end %>

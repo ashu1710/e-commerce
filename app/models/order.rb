@@ -3,13 +3,9 @@ class Order < ApplicationRecord
   #relationships 
 
   belongs_to :user
-  belongs_to :cart
   belongs_to :address
-  belongs_to :coupon
-
-  #validates
+  # belongs_to :coupon
+  belongs_to :product_size_color
   
-  validates :min_amt, presence: true, numericality: { only_integer: true }
-  validates :amt_discount, presence: true, numericality: { only_integer: true }
-
+  
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_17_063111) do
+ActiveRecord::Schema.define(version: 2019_04_19_122927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_063111) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "pincode"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -88,14 +89,13 @@ ActiveRecord::Schema.define(version: 2019_04_17_063111) do
   create_table "orders", force: :cascade do |t|
     t.date "order_received_date"
     t.bigint "user_id"
-    t.bigint "cart_id"
     t.bigint "address_id"
-    t.bigint "coupon_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_size_color_id"
+    t.integer "qty"
     t.index ["address_id"], name: "index_orders_on_address_id"
-    t.index ["cart_id"], name: "index_orders_on_cart_id"
-    t.index ["coupon_id"], name: "index_orders_on_coupon_id"
+    t.index ["product_size_color_id"], name: "index_orders_on_product_size_color_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -182,8 +182,7 @@ ActiveRecord::Schema.define(version: 2019_04_17_063111) do
   add_foreign_key "carts", "product_size_colors"
   add_foreign_key "carts", "users"
   add_foreign_key "orders", "addresses"
-  add_foreign_key "orders", "carts"
-  add_foreign_key "orders", "coupons"
+  add_foreign_key "orders", "product_size_colors"
   add_foreign_key "orders", "users"
   add_foreign_key "product_size_colors", "product_colors"
   add_foreign_key "product_size_colors", "product_sizes"
